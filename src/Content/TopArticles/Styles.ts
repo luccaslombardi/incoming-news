@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     topArticle: {
         backgroundColor: '#fff',
         borderWidth: 1,
-        borderColor: '#f8f8f8',
+        borderColor: '#c4c4c4',
         borderRadius: 10,
         height: 350,
         width: 300,
