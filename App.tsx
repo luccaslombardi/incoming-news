@@ -1,9 +1,12 @@
-import { Home } from './src/Pages/Home';
-
+import { Home } from './src/Pages/Home/Home';
+import { View } from 'react-native';
+import styles from './Global-Styles';
 
 export default function App() {
   return (
-    <Home />
+    <View style={styles.container}>
+      <Home />
+    </View>
   );
 }
 
