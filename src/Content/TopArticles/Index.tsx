@@ -28,7 +28,12 @@ export function TopArticles() {
                     return (
 
                         <View style={styles.topArticle} key={title}>
-                            <Image style={styles.topArticleImage} source={{ uri: urlToImage }} />
+                            {!urlToImage ? (
+                                <></>
+                            ) : (
+                                <Image style={styles.topArticleImage} source={{ uri: urlToImage }} />
+                            )}
+
                             <View style={styles.topContentArticle}>
                                 <Text style={styles.topArticleTitle} numberOfLines={2} ellipsizeMode="tail">{title}</Text>
                                 <Text numberOfLines={3} ellipsizeMode="tail">{description}</Text>

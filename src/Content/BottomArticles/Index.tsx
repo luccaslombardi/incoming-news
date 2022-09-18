@@ -31,9 +31,16 @@ export function BottomArticles() {
                     return (
 
                         <View style={styles.bottomArticle} key={title}>
-                            <View style={styles.bottomArticleImageContent}>
-                                <Image style={styles.bottomArticleImage} source={{ uri: urlToImage }} />
-                            </View>
+
+                            {!urlToImage ? (
+                                <></>
+                            ) : (
+                                <View style={styles.bottomArticleImageContent}>
+                                    <Image style={styles.bottomArticleImage} source={{ uri: urlToImage }} />
+                                </View>
+                            )}
+
+
 
                             <View style={styles.bottomContentArticle}>
                                 <Text style={styles.bottomArticleTitle} numberOfLines={2} ellipsizeMode="tail">{title}</Text>
