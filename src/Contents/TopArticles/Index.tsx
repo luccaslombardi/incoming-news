@@ -1,9 +1,13 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Text, View, ScrollView, Image } from 'react-native';
+import { Text, View, ScrollView, Image, TouchableOpacity } from 'react-native';
 import styles from './Styles';
 
-export function TopArticles() {
+interface NavigationProps {
+    navigationParam: any
+}
+
+export function TopArticles(props: NavigationProps) {
     const [topArticles, setTopArticles] = useState([])
     const apiKey = '2fda4986c3b244838f906de2c3dd9fcb'
 
@@ -26,20 +30,17 @@ export function TopArticles() {
                 {topArticles.map(article => {
                     const { title, description, urlToImage } = article
                     return (
-
-                        <View style={styles.topArticle} key={title}>
+                        <TouchableOpacity style={styles.topArticle} key={title} onPress={() => props.navigationParam.navigate('article')}>
                             {!urlToImage ? (
                                 <></>
                             ) : (
                                 <Image style={styles.topArticleImage} source={{ uri: urlToImage }} />
                             )}
-
                             <View style={styles.topContentArticle}>
                                 <Text style={styles.topArticleTitle} numberOfLines={2} ellipsizeMode="tail">{title}</Text>
                                 <Text numberOfLines={3} ellipsizeMode="tail">{description}</Text>
                             </View>
-
-                        </View>
+                        </TouchableOpacity>
                     )
                 })
                 }

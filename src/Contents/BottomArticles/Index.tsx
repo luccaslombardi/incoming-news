@@ -1,9 +1,13 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 import styles from './Styles';
 
-export function BottomArticles() {
+interface NavigationProps {
+    navigationParam: any
+}
+
+export function BottomArticles(props: NavigationProps) {
     const [bottomArticles, setBottomArticles] = useState([])
     const apiKey = '2fda4986c3b244838f906de2c3dd9fcb'
 
@@ -29,9 +33,7 @@ export function BottomArticles() {
                 {bottomArticles.map(article => {
                     const { title, description, urlToImage } = article
                     return (
-
-                        <View style={styles.bottomArticle} key={title}>
-
+                        <TouchableOpacity style={styles.bottomArticle} key={title} onPress={() => props.navigationParam.navigate('article')}>
                             {!urlToImage ? (
                                 <></>
                             ) : (
@@ -39,17 +41,12 @@ export function BottomArticles() {
                                     <Image style={styles.bottomArticleImage} source={{ uri: urlToImage }} />
                                 </View>
                             )}
-
-
-
                             <View style={styles.bottomContentArticle}>
                                 <Text style={styles.bottomArticleTitle} numberOfLines={2} ellipsizeMode="tail">{title}</Text>
                                 <Text style={styles.bottomArticleDescription} numberOfLines={2} ellipsizeMode="tail">{description}</Text>
                             </View>
-
-                        </View>
+                        </TouchableOpacity>
                     )
-
                 })
                 }
             </View>

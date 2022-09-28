@@ -1,11 +1,31 @@
 import React from 'react';
-import { ScrollView, Text } from 'react-native';
+import { useState } from 'react';
+import { ScrollView, Text, View, TextInput, Pressable } from 'react-native';
+import { SearchMechanic } from '../../Contents/SearchMechanic/Index';
 
 
-export function Search() {
+export function Search({ navigation }: any) {
+    const [searchWord, setSearchWord] = useState("")
+    const [searchWordOnProps, setSearchWordOnProps] = useState("")
+
+
     return (
-        <ScrollView>
-            <Text>Search Engine</Text>
-        </ScrollView>
+        <View>
+            <View>
+                <TextInput
+                    onChangeText={setSearchWord}
+                />
+                <Pressable onPress={() => setSearchWordOnProps(searchWord)}>
+                    <Text>Opa</Text>
+                </Pressable>
+            </View>
+
+
+
+            <ScrollView>
+                <SearchMechanic searchKey={searchWordOnProps} navigationParam={navigation} />
+            </ScrollView>
+        </View>
+
     )
 }

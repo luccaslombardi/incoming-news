@@ -1,11 +1,11 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { ArticlesByCategory } from '../../Content/ArticlesByCategory/Index';
+import { ArticlesByCategory } from '../../Contents/ArticlesByCategory/Index';
 
-export function Business() {
+export function Business({ navigation }: any) {
     return (
         <ScrollView>
-            <ArticlesByCategory category="business" />
+            <ArticlesByCategory category="business" navigationParam={navigation} />
         </ScrollView>
     )
 }

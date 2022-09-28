@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 import styles from './Styles';
 
 interface CategoryProps {
-    category: String
+    category: String,
+    navigationParam: any
 }
 
 export function ArticlesByCategory(props: CategoryProps) {
@@ -37,7 +38,7 @@ export function ArticlesByCategory(props: CategoryProps) {
                     const { title, description, urlToImage } = article
                     return (
 
-                        <View style={styles.article} key={title}>
+                        <TouchableOpacity style={styles.article} key={title} onPress={() => props.navigationParam.navigate('article')}>
 
                             {!urlToImage ? (
                                 <></>
@@ -54,7 +55,7 @@ export function ArticlesByCategory(props: CategoryProps) {
                                 <Text style={styles.articleDescription} numberOfLines={2} ellipsizeMode="tail">{description}</Text>
                             </View>
 
-                        </View>
+                        </TouchableOpacity>
                     )
 
                 })
