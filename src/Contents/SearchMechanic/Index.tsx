@@ -42,7 +42,7 @@ export function SearchMechanic(props: SearchProps) {
                             const { title, description, urlToImage } = article
                             return (
 
-                                <TouchableOpacity style={styles.article} key={title} onPress={() => props.navigationParam.navigate('article')} >
+                                <TouchableOpacity style={styles.article} key={title} onPress={() => props.navigationParam.navigate('article', article)} >
 
                                     {!urlToImage ? (
                                         <></>

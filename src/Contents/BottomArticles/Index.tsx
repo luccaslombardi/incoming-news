@@ -33,7 +33,7 @@ export function BottomArticles(props: NavigationProps) {
                 {bottomArticles.map(article => {
                     const { title, description, urlToImage } = article
                     return (
-                        <TouchableOpacity style={styles.bottomArticle} key={title} onPress={() => props.navigationParam.navigate('article')}>
+                        <TouchableOpacity style={styles.bottomArticle} key={title} onPress={() => props.navigationParam.navigate('article', article)}>
                             {!urlToImage ? (
                                 <></>
                             ) : (
