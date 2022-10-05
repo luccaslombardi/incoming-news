@@ -1,10 +1,13 @@
-import { ScrollView } from 'react-native';
-import { ArticlesByCategory } from '../../Contents/ArticlesByCategory/Index';
+import { ScrollView, View } from 'react-native';
+import { Articles } from '../../Components/Articles/Index';
+import styles from './Styles';
 
 export function Sports({ navigation }: any) {
     return (
-        <ScrollView>
-            <ArticlesByCategory category="sports" navigationParam={navigation} />
-        </ScrollView>
+        <View>
+            <ScrollView style={styles.container}>
+                <Articles typeOfArticles="sports" navigationParam={navigation} />
+            </ScrollView>
+        </View>
     )
 }

@@ -1,18 +1,37 @@
 import { StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-    bottomArticlesHeader: {
-        fontSize: 32,
-        marginLeft: 20,
-        marginVertical: 10
-    },
-    bottomArticleContainer: {
-        backgroundColor: '#f5f5f5',
+    articleContainer: {
         alignItems: 'center',
         justifyContent: 'center',
         paddingHorizontal: 40
     },
-    bottomArticle: {
+
+    topArticle: {
+        backgroundColor: 'rgba(255, 255, 255, 0.3)',
+        borderWidth: 1,
+        borderColor: '#c4c4c4',
+        borderRadius: 10,
+        height: 350,
+        width: 300,
+        margin: 10,
+    },
+    topArticleImage: {
+        width: 298,
+        height: 200,
+        borderTopRightRadius: 10,
+        borderTopLeftRadius: 10
+    },
+    topContentArticle: {
+        alignText: 'justify',
+        justifyContent: 'center',
+        padding: 20
+    },
+    topArticleTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    article: {
         flexDirection: 'row',
         height: 100,
         width: 400,
@@ -22,28 +41,28 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderColor: '#c4c4c4',
     },
-    bottomArticleImageContent: {
+    imageContent: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         width: 50
     },
-    bottomArticleImage: {
+    articleImage: {
         width: 75,
         height: 75,
         borderRadius: 10
     },
-    bottomContentArticle: {
+    contentArticle: {
         alignText: 'justify',
         justifyContent: 'center',
         padding: 20,
         width: 300
     },
-    bottomArticleTitle: {
+    articleTitle: {
         fontSize: 14,
         fontWeight: 'bold',
     },
-    bottomArticleDescription: {
+    articleDescription: {
         fontSize: 12,
         maxLength: 6,
         numberOfLines: 2,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { ScrollView, Text, View, TextInput, Pressable } from 'react-native';
-import { SearchMechanic } from '../../Contents/SearchMechanic/Index';
+import { SearchMechanic } from '../../Components/SearchMechanic/Index';
 
 
 export function Search({ navigation }: any) {
@@ -22,9 +22,9 @@ export function Search({ navigation }: any) {
 
 
 
-            <ScrollView>
-                <SearchMechanic searchKey={searchWordOnProps} navigationParam={navigation} />
-            </ScrollView>
+
+            <SearchMechanic searchKey={searchWordOnProps} navigationParam={navigation} />
+
         </View>
 
     )

@@ -1,17 +1,14 @@
-import { View, ScrollView, Button } from 'react-native';
-import { TopArticles } from '../../Contents/TopArticles/Index';
-import { BottomArticles } from '../../Contents/BottomArticles/Index';
+import { View, ScrollView } from 'react-native';
+import { Articles } from '../../Components/Articles/Index';
 import styles from './Styles';
 
 
 export function Home({ navigation }: any) {
 
     return (
-        <ScrollView>
-            <View style={styles.container}>
-                <TopArticles navigationParam={navigation} />
-                <BottomArticles navigationParam={navigation} />
-            </View>
+        <ScrollView style={styles.container}>
+            <Articles typeOfArticles="homeTopArticles" navigationParam={navigation} />
+            <Articles typeOfArticles="homeBottomArticles" navigationParam={navigation} />
         </ScrollView>
     )
 }
