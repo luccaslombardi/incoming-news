@@ -1,30 +1,39 @@
 import React from 'react';
 import { useState } from 'react';
-import { ScrollView, Text, View, TextInput, Pressable } from 'react-native';
+import { Text, View, TextInput, Pressable } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
 import { SearchMechanic } from '../../Components/SearchMechanic/Index';
+
+import styles from './Styles';
 
 
 export function Search({ navigation }: any) {
     const [searchWord, setSearchWord] = useState("")
     const [searchWordOnProps, setSearchWordOnProps] = useState("")
 
-
     return (
-        <View>
-            <View>
+        <View style={styles.container}>
+            <View style={styles.searchContainer}>
                 <TextInput
+                    style={styles.searchInput}
                     onChangeText={setSearchWord}
+                    placeholder="Digite aqui..."
                 />
-                <Pressable onPress={() => setSearchWordOnProps(searchWord)}>
-                    <Text>Opa</Text>
+                <Pressable onPress={() => setSearchWordOnProps(searchWord)} style={styles.searchButton}>
+                    <AntDesign name="search1" size={22} color="#8c8c8c" />
                 </Pressable>
             </View>
 
-
-
-
-            <SearchMechanic searchKey={searchWordOnProps} navigationParam={navigation} />
-
+            <View style={searchWordOnProps ? styles.searchedArticlesContainer : styles.emptySearchedContainer}>
+                {searchWordOnProps ? (
+                    <SearchMechanic searchKey={searchWordOnProps} navigationParam={navigation} />
+                ) : (
+                    <View style={styles.emptySearchedView}>
+                        <AntDesign name="search1" size={32} color="#a7a7a8" />
+                        <Text style={styles.emptySearchedText}>Seus artigos procurados aparecerão aqui</Text>
+                    </View>
+                )}
+            </View>
         </View>
 
     )

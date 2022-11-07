@@ -22,13 +22,14 @@ const styles = StyleSheet.create({
         textAlign: 'left'
     },
     articleContent: {
-        marginTop: 20,
-        paddingTop: 20,
         textAlign: 'justify',
-        borderTopWidth: 1,
-        borderColor: '#c4c4c4',
         fontSize: 16,
         lineHeight: 20,
+    },
+    articleSpace: {
+        height:1,
+        backgroundColor: '#c4c4c4',
+        marginVertical: 25
     },
     pressableContainer: {
         height:50,

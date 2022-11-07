@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { convertStringToDate } from '../../Utils/convertStringToDate'
 import styles from './Styles';
 
 interface SearchProps {
@@ -27,34 +28,33 @@ export function SearchMechanic(props: SearchProps) {
 
     return (
         <View>
-            {!props.searchKey ? (
-                <Text>Busque</Text>
-            ) : (
-                <ScrollView>
-                    {articlesBySearch.map(article => {
-                        const { title, description, urlToImage } = article
-                        return (
 
-                            <TouchableOpacity style={styles.article} key={title} onPress={() => props.navigationParam.navigate('article', article)} >
-                                {!urlToImage ? (
-                                    <></>
-                                ) : (
-                                    <View style={styles.imageContent}>
-                                        <Image style={styles.articleImage} source={{ uri: urlToImage }} />
-                                    </View>
-                                )}
-                                <View style={styles.contentArticle}>
-                                    <Text style={styles.articleTitle} numberOfLines={2} ellipsizeMode="tail">{title}</Text>
-                                    <Text style={styles.articleDescription} numberOfLines={2} ellipsizeMode="tail">{description}</Text>
+            <ScrollView>
+                {articlesBySearch.map(article => {
+                    const { title, description, urlToImage, publishedAt } = article
+                    return (
+
+                        <TouchableOpacity style={styles.article} key={title} onPress={() => props.navigationParam.navigate('article', article)} >
+                            {!urlToImage ? (
+                                <></>
+                            ) : (
+                                <View style={styles.imageContent}>
+                                    <Image style={styles.articleImage} source={{ uri: urlToImage }} />
                                 </View>
+                            )}
+                            <View style={styles.contentArticle}>
+                                <Text style={styles.articleTitle} numberOfLines={2} ellipsizeMode="tail">{title}</Text>
+                                <Text style={styles.articleDate} numberOfLines={2} ellipsizeMode="tail">{convertStringToDate(publishedAt)}</Text>
+                                <Text style={styles.articleDescription} numberOfLines={2} ellipsizeMode="tail">{description}</Text>
+                            </View>
 
-                            </TouchableOpacity >
-                        )
+                        </TouchableOpacity >
+                    )
 
-                    })
-                    }
-                </ScrollView>
-            )}
+                })
+                }
+            </ScrollView>
+
 
         </View>
 

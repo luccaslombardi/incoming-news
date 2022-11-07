@@ -62,6 +62,9 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: 'bold',
     },
+    articleDate: {
+        fontSize: 10,
+    },
     articleDescription: {
         fontSize: 12,
         maxLength: 6,

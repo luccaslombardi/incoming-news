@@ -19,8 +19,11 @@ const SearchStack = createNativeStackNavigator();
 function HomeStackScreen() {
     return (
         <HomeStack.Navigator>
-            <HomeStack.Screen name="home" component={Home} options={{ headerShown: true }} />
-            <HomeStack.Screen name="article" component={Article} />
+            <HomeStack.Screen name="home" component={Home} options={{
+                headerShown: true,
+                title: 'Página Principal'
+            }} />
+            <HomeStack.Screen name="article" component={Article} options={{ title: '' }} />
         </HomeStack.Navigator>
     );
 }
@@ -28,8 +31,11 @@ function HomeStackScreen() {
 function BusinessStackScreen() {
     return (
         <HomeStack.Navigator>
-            <BusinessStack.Screen name="business" component={Business} options={{ headerShown: true }} />
-            <BusinessStack.Screen name="article" component={Article} />
+            <BusinessStack.Screen name="business" component={Business} options={{
+                headerShown: true,
+                title: 'Negócios'
+            }} />
+            <BusinessStack.Screen name="article" component={Article} options={{ title: '' }} />
         </HomeStack.Navigator>
     );
 }
@@ -37,8 +43,11 @@ function BusinessStackScreen() {
 function SportsStackScreen() {
     return (
         <HomeStack.Navigator>
-            <SportsStack.Screen name="sports" component={Sports} options={{ headerShown: true }} />
-            <SportsStack.Screen name="article" component={Article} />
+            <SportsStack.Screen name="sports" component={Sports} options={{
+                headerShown: true,
+                title: 'Esportes'
+            }} />
+            <SportsStack.Screen name="article" component={Article} options={{ title: '' }} />
         </HomeStack.Navigator>
     );
 }
@@ -46,8 +55,11 @@ function SportsStackScreen() {
 function SearchStackScreen() {
     return (
         <HomeStack.Navigator>
-            <SearchStack.Screen name="search" component={Search} options={{ headerShown: true }} />
-            <SearchStack.Screen name="article" component={Article} />
+            <SearchStack.Screen name="search" component={Search} options={{
+                headerShown: true,
+                title: 'Busca'
+            }} />
+            <SearchStack.Screen name="article" component={Article} options={{ title: '' }} />
         </HomeStack.Navigator>
     );
 }
@@ -60,28 +72,28 @@ export function TabRoutes() {
             inactiveColor="#fff5f6"
         >
             <Tab.Screen name="homeScreen" component={HomeStackScreen} options={{
-                tabBarLabel: 'Home',
+                tabBarLabel: 'Princpal',
                 tabBarColor: "#d1061b",
                 tabBarIcon: ({ color }) => (
                     <MaterialIcons name="home-filled" color={color} size={26} />
                 ),
             }} />
             <Tab.Screen name="bussinessScreen" component={BusinessStackScreen} options={{
-                tabBarLabel: 'Business',
+                tabBarLabel: 'Negócios',
                 tabBarColor: "#002f54",
                 tabBarIcon: ({ color }) => (
                     <MaterialIcons name="work" color={color} size={26} />
                 ),
             }} />
             <Tab.Screen name="sportsScreen" component={SportsStackScreen} options={{
-                tabBarLabel: 'Sports',
+                tabBarLabel: 'Esportes',
                 tabBarColor: "#017a4a",
                 tabBarIcon: ({ color }) => (
                     <MaterialIcons name="sports-football" color={color} size={26} />
                 ),
             }} />
             <Tab.Screen name="searchScreen" component={SearchStackScreen} options={{
-                tabBarLabel: 'Search',
+                tabBarLabel: 'Busca',
                 tabBarColor: "blue",
                 tabBarIcon: ({ color }) => (
                     <MaterialIcons name="search" color={color} size={26} />

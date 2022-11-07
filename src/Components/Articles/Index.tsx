@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { convertStringToDate } from '../../Utils/convertStringToDate'
 import styles from './Styles';
 
 interface CategoryProps {
@@ -62,7 +63,7 @@ export function Articles(props: CategoryProps) {
 
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                     {articles.map(article => {
-                        const { title, description, urlToImage } = article
+                        const { title, description, urlToImage, publishedAt } = article
                         return (
                             <TouchableOpacity style={styles.topArticle} key={title} onPress={() => props.navigationParam.navigate('article', article)}>
                                 {!urlToImage ? (
@@ -72,6 +73,7 @@ export function Articles(props: CategoryProps) {
                                 )}
                                 <View style={styles.topContentArticle}>
                                     <Text style={styles.topArticleTitle} numberOfLines={2} ellipsizeMode="tail">{title}</Text>
+                                    <Text style={styles.articleDate} numberOfLines={2} ellipsizeMode="tail">{convertStringToDate(publishedAt)}</Text>
                                     <Text numberOfLines={3} ellipsizeMode="tail">{description}</Text>
                                 </View>
                             </TouchableOpacity>
@@ -83,7 +85,7 @@ export function Articles(props: CategoryProps) {
             ) : (
                 <View style={styles.articleContainer}>
                     {articles.map(article => {
-                        const { title, description, urlToImage } = article
+                        const { title, description, urlToImage, publishedAt } = article
                         return (
 
                             <TouchableOpacity style={styles.article} key={title} onPress={() => props.navigationParam.navigate('article', article)}>
@@ -100,6 +102,7 @@ export function Articles(props: CategoryProps) {
 
                                 <View style={styles.contentArticle}>
                                     <Text style={styles.articleTitle} numberOfLines={2} ellipsizeMode="tail">{title}</Text>
+                                    <Text style={styles.articleDate} numberOfLines={2} ellipsizeMode="tail">{convertStringToDate(publishedAt)}</Text>
                                     <Text style={styles.articleDescription} numberOfLines={2} ellipsizeMode="tail">{description}</Text>
                                 </View>
 

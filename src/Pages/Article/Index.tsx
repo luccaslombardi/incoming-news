@@ -18,6 +18,7 @@ export function Article({ route }: any) {
                 <View style={styles.articleContainer}>
                     <Text style={styles.publishedDate}>{convertStringToDate(publishedAt)}</Text>
                     <Text style={styles.articleTitle}>{title}</Text>
+                    <View style={styles.articleSpace} />
                     <Text style={styles.articleContent}>{content.split("[")[0]}</Text>
                 </View>
             </ScrollView>
