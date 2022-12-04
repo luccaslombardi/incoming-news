@@ -6,7 +6,7 @@ import styles from './Styles';
 export function Business({ navigation }: any) {
     return (
         <ScrollView style={styles.container}>
-            <Articles typeOfArticles="business" navigationParam={navigation} />
+            <Articles typeOfArticles="business" searchKey="" navigationParam={navigation} />
         </ScrollView>
     )
 }

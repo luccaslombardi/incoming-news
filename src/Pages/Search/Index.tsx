@@ -5,6 +5,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { SearchMechanic } from '../../Components/SearchMechanic/Index';
 
 import styles from './Styles';
+import { Articles } from '../../Components/Articles/Index';
 
 
 export function Search({ navigation }: any) {
@@ -26,7 +27,7 @@ export function Search({ navigation }: any) {
 
             <View style={searchWordOnProps ? styles.searchedArticlesContainer : styles.emptySearchedContainer}>
                 {searchWordOnProps ? (
-                    <SearchMechanic searchKey={searchWordOnProps} navigationParam={navigation} />
+                    <Articles typeOfArticles="search" searchKey={searchWordOnProps} navigationParam={navigation} />
                 ) : (
                     <View style={styles.emptySearchedView}>
                         <AntDesign name="search1" size={32} color="#a7a7a8" />

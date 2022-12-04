@@ -7,8 +7,8 @@ export function Home({ navigation }: any) {
 
     return (
         <ScrollView style={styles.container}>
-            <Articles typeOfArticles="homeTopArticles" navigationParam={navigation} />
-            <Articles typeOfArticles="homeBottomArticles" navigationParam={navigation} />
+            <Articles typeOfArticles="homeTopArticles" searchKey="" navigationParam={navigation} />
+            <Articles typeOfArticles="homeBottomArticles" searchKey="" navigationParam={navigation} />
         </ScrollView>
     )
 }

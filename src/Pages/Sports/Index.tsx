@@ -6,7 +6,7 @@ export function Sports({ navigation }: any) {
     return (
         <View>
             <ScrollView style={styles.container}>
-                <Articles typeOfArticles="sports" navigationParam={navigation} />
+                <Articles typeOfArticles="sports" searchKey="" navigationParam={navigation} />
             </ScrollView>
         </View>
     )
