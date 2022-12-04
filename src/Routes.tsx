@@ -1,5 +1,5 @@
 import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator, NativeStackScreenProps } from '@react-navigation/native-stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import { } from '@react-navigation/elements'
 import { Home } from './Pages/Home/Index'
@@ -9,11 +9,37 @@ import { Search } from './Pages/Search/Index'
 import { Business } from './Pages/Business/Index'
 import { MaterialIcons } from '@expo/vector-icons';
 
-const Tab = createMaterialBottomTabNavigator()
-const HomeStack = createNativeStackNavigator();
-const BusinessStack = createNativeStackNavigator();
-const SportsStack = createNativeStackNavigator();
-const SearchStack = createNativeStackNavigator();
+interface RenderArticleProps {
+    title: string,
+    url: string,
+    urlToImage: string,
+    publishedAt: string,
+    content: string
+}
+
+export type TabParams = {
+    homeScreen: String;
+    bussinessScreen: String;
+    sportsScreen: String;
+    searchScreen: String;
+}
+
+type StackParams = {
+    home: String;
+    business: String;
+    sports: String;
+    search: String;
+    article: { article: RenderArticleProps }
+}
+
+export type StackProps = NativeStackScreenProps<StackParams>
+export type StackArticleProps = NativeStackScreenProps<StackParams, 'article'>
+
+const Tab = createMaterialBottomTabNavigator<TabParams>()
+const HomeStack = createNativeStackNavigator<StackParams>();
+const BusinessStack = createNativeStackNavigator<StackParams>();
+const SportsStack = createNativeStackNavigator<StackParams>();
+const SearchStack = createNativeStackNavigator<StackParams>();
 
 
 function HomeStackScreen() {
@@ -68,7 +94,7 @@ export function TabRoutes() {
     return (
 
         <Tab.Navigator
-            initialRouteName="homePage"
+            initialRouteName="homeScreen"
             inactiveColor="#fff5f6"
         >
             <Tab.Screen name="homeScreen" component={HomeStackScreen} options={{

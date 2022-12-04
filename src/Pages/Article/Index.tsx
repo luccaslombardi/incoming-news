@@ -1,9 +1,11 @@
 import { Text, View, Image, Linking, TouchableOpacity, ScrollView, Dimensions } from "react-native";
 import styles from './Styles';
 import { convertStringToDate } from '../../Utils/convertStringToDate'
+import { StackArticleProps } from "../../Routes";
 
-export function Article({ route }: any) {
-    const { title, url, urlToImage, publishedAt, content } = route.params
+export function Article({ route }: StackArticleProps) {
+
+    const { title, url, urlToImage, publishedAt, content } = route.params.article
 
     //constantes para estilização da imagem
     const dimensions = Dimensions.get('window');

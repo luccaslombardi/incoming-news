@@ -3,7 +3,7 @@ import { Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { convertStringToDate } from '../../Utils/convertStringToDate'
 import { getTopArticles, getBottomArticles, getArticlesByCategory, getArticlesBySearch } from '../../Service/api'
 import styles from './Styles';
-
+import { StackProps } from '../../Routes';
 interface CategoryProps {
     typeOfArticles: "homeTopArticles" | "homeBottomArticles" | "business" | "sports" | "search",
     searchKey: String,
@@ -13,6 +13,7 @@ interface CategoryProps {
 export function Articles(props: CategoryProps) {
 
     const [articles, setArticles] = useState([])
+
 
     if (props.typeOfArticles === "business" || props.typeOfArticles === "sports") {
 
@@ -60,7 +61,7 @@ export function Articles(props: CategoryProps) {
                         {articles.map(article => {
                             const { title, description, urlToImage, publishedAt } = article
                             return (
-                                <TouchableOpacity style={styles.topArticle} key={title} onPress={() => props.navigationParam.navigate('article', article)}>
+                                <TouchableOpacity style={styles.topArticle} key={title} onPress={() => props.navigationParam.navigate('article', { article: article })}>
                                     {!urlToImage ? (
                                         <></>
                                     ) : (
@@ -83,7 +84,7 @@ export function Articles(props: CategoryProps) {
                             const { title, description, urlToImage, publishedAt } = article
                             return (
 
-                                <TouchableOpacity style={styles.article} key={title} onPress={() => props.navigationParam.navigate('article', article)}>
+                                <TouchableOpacity style={styles.article} key={title} onPress={() => props.navigationParam.navigate('article', { article: article })}>
 
                                     {!urlToImage ? (
                                         <></>

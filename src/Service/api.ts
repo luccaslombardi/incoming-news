@@ -1,13 +1,9 @@
 import axios from 'axios';
 
-
-
 const api = axios.create({
     baseURL: process.env.REACT_APP_BASE_URL
 })
-
 const apiKey = process.env.REACT_APP_API_KEY
-
 
 export const getTopArticles = () => {
     const res = api.get(`/top-headlines?sources=bbc-news&pageSize=5&apiKey=${apiKey}`)

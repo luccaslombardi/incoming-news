@@ -2,13 +2,11 @@ import React from 'react';
 import { useState } from 'react';
 import { Text, View, TextInput, Pressable } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-import { SearchMechanic } from '../../Components/SearchMechanic/Index';
-
-import styles from './Styles';
 import { Articles } from '../../Components/Articles/Index';
+import styles from './Styles';
+import { StackProps } from '../../Routes';
 
-
-export function Search({ navigation }: any) {
+export function Search({ navigation }: StackProps) {
     const [searchWord, setSearchWord] = useState("")
     const [searchWordOnProps, setSearchWordOnProps] = useState("")
 
