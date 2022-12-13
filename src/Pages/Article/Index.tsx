@@ -1,13 +1,15 @@
 import { Text, View, Image, Linking, TouchableOpacity, ScrollView, Dimensions } from "react-native";
-import styles from './Styles';
 import { convertStringToDate } from '../../Utils/convertStringToDate'
-import { StackArticleProps } from "../../Routes";
+import { StackArticleProps } from "../../Global/types";
+import styles from './Styles';
+
 
 export function Article({ route }: StackArticleProps) {
 
+    //desestruturação das informações recebidas pelo Navigate
     const { title, url, urlToImage, publishedAt, content } = route.params.article
 
-    //constantes para estilização da imagem
+    //constantes para estilização da imagem/banner do artigo
     const dimensions = Dimensions.get('window');
     const imageHeight = Math.round(dimensions.width * 9 / 16);
     const imageWidth = dimensions.width;

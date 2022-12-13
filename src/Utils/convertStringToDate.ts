@@ -1,3 +1,4 @@
+//função para converter string em formato de data
 export function convertStringToDate(publishedAt: string) {
         const day = new Date(publishedAt).getDate()
         const month = (new Date(publishedAt).getMonth() + 1);

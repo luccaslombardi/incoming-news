@@ -1,6 +1,6 @@
 import { ScrollView, View } from 'react-native';
 import { Articles } from '../../Components/Articles/Index';
-import { StackProps } from '../../Routes';
+import { StackProps } from '../../Global/types';
 import styles from './Styles';
 
 export function Sports({ navigation }: StackProps) {

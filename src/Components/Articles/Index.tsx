@@ -2,21 +2,16 @@ import { useEffect, useState } from 'react';
 import { Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { convertStringToDate } from '../../Utils/convertStringToDate'
 import { getTopArticles, getBottomArticles, getArticlesByCategory, getArticlesBySearch } from '../../Service/api'
+import { CategoryProps } from '../../Global/types';
 import styles from './Styles';
-import { StackProps } from '../../Routes';
-interface CategoryProps {
-    typeOfArticles: "homeTopArticles" | "homeBottomArticles" | "business" | "sports" | "search",
-    searchKey: String,
-    navigationParam: any
-}
+
 
 export function Articles(props: CategoryProps) {
 
     const [articles, setArticles] = useState([])
 
-
+    //chamadas das funções de request ded acordo com typeOfArticles passado como parâmetro 
     if (props.typeOfArticles === "business" || props.typeOfArticles === "sports") {
-
         useEffect(() => {
             getArticlesByCategory(props.typeOfArticles).then(response => {
                 setArticles(response.data.articles);
@@ -44,6 +39,7 @@ export function Articles(props: CategoryProps) {
     }
 
     else if (props.typeOfArticles === "search") {
+        //useEffect será acionado toda vez que tiver alteração na palavra buscada em searchKey
         useEffect(() => {
             getArticlesBySearch(props.searchKey).then(response => {
                 setArticles(response.data.articles);
