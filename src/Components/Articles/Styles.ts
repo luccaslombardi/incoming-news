@@ -1,4 +1,4 @@
-import { StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     articleContainer: {
@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         paddingHorizontal: 40
     },
-
     topArticle: {
         backgroundColor: 'rgba(255, 255, 255, 0.3)',
         borderWidth: 1,
@@ -64,6 +63,7 @@ const styles = StyleSheet.create({
     },
     articleDate: {
         fontSize: 10,
+        paddingVertical: 5
     },
     articleDescription: {
         fontSize: 12,
