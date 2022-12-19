@@ -1,52 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { convertStringToDate } from '../../Utils/convertStringToDate'
-import { getTopArticles, getBottomArticles, getArticlesByCategory, getArticlesBySearch } from '../../Service/api'
 import { CategoryProps } from '../../Global/types';
 import styles from './Styles';
+import { GetArticleByCategory } from '../../Hooks/GetArticleByCategory';
 
 
 export function Articles(props: CategoryProps) {
-
     const [articles, setArticles] = useState([])
-
-    //chamadas das funções de request ded acordo com typeOfArticles passado como parâmetro 
-    if (props.typeOfArticles === "business" || props.typeOfArticles === "sports") {
-        useEffect(() => {
-            getArticlesByCategory(props.typeOfArticles).then(response => {
-                setArticles(response.data.articles);
-            })
-                .catch(err => { console.log(err); });
-        }, [props.typeOfArticles])
-    }
-
-    else if (props.typeOfArticles === "homeBottomArticles") {
-        useEffect(() => {
-            getBottomArticles().then(response => {
-                setArticles(response.data.articles);
-            })
-                .catch(err => { console.log(err); });
-        }, [props.typeOfArticles])
-    }
-
-    else if (props.typeOfArticles === "homeTopArticles") {
-        useEffect(() => {
-            getTopArticles().then(response => {
-                setArticles(response.data.articles);
-            })
-                .catch(err => { console.log(err); });
-        }, [props.typeOfArticles])
-    }
-
-    else if (props.typeOfArticles === "search") {
-        //useEffect será acionado toda vez que tiver alteração na palavra buscada em searchKey
-        useEffect(() => {
-            getArticlesBySearch(props.searchKey).then(response => {
-                setArticles(response.data.articles);
-            })
-                .catch(err => { console.log(err); });
-        }, [props.searchKey])
-    }
+    GetArticleByCategory(props.typeOfArticles, props.searchKey, setArticles)
 
     return (
         <View>
@@ -105,7 +67,6 @@ export function Articles(props: CategoryProps) {
                         }
                     </View>
                 )}
-
             </ScrollView>
         </View>
     )
