@@ -1,11 +1,15 @@
 import { Dispatch, SetStateAction, useEffect } from "react";
+import { ArticleProps } from "../Global/types";
 import { getArticlesByCategory, getArticlesBySearch, getBottomArticles, getTopArticles } from "../Service/api";
 
 
-export function GetArticleByCategory(typeOfArticle: String, searchKey: String, setArticles: Dispatch<SetStateAction<never[]>>) {
+export function GetArticleByCategory(
+    typeOfArticle: String,
+    searchKey: String,
+    setArticles: Dispatch<SetStateAction<ArticleProps[]>>
+) {
 
     //chamadas das funções de request ded acordo com typeOfArticles passado como parâmetro 
-
     if (typeOfArticle === "business" || typeOfArticle === "sports") {
         useEffect(() => {
             getArticlesByCategory(typeOfArticle).then(response => {
