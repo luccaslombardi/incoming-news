@@ -1,7 +1,6 @@
 import React from 'react'
-import { createNativeStackNavigator, NativeStackScreenProps } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
-import { } from '@react-navigation/elements'
 import { Home } from './Pages/Home/Index'
 import { Article } from './Pages/Article/Index'
 import { Sports } from './Pages/Sports/Index'
