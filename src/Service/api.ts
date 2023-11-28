@@ -11,6 +11,7 @@ const apiKey = process.env.REACT_APP_API_KEY
 //request dos primeiros artigos na Home
 export const getTopArticles = () => {
     const res = api.get(`/top-headlines?sources=bbc-news&pageSize=5&apiKey=${apiKey}`)
+    console.log(apiKey)
     return res
 }
 
@@ -23,6 +24,7 @@ export const getBottomArticles = () => {
 //request dos artigos de acordo com a categoria
 export const getArticlesByCategory = (typeOfArticles: String) => {
     const res = api.get(`/top-headlines?country=br&category=${typeOfArticles}&pageSize=10&apiKey=${apiKey}`)
+    console.log(apiKey)
     return res
 }
 
